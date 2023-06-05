@@ -86,7 +86,7 @@ impl<'a> SubParser<'a> for Matcher {
 impl Matcher {
     pub fn try_from(entry: UserAgentParserEntry) -> Result<Matcher, Error> {
         let regex = regex::RegexBuilder::new(&clean_escapes(&entry.regex))
-            .size_limit(20 * (1 << 20))
+            .size_limit(10 * (1 << 20))
             .build();
 
         Ok(Matcher {

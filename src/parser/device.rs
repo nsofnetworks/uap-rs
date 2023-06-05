@@ -81,7 +81,7 @@ impl Matcher {
             format!("(?{}){}", entry.regex_flag.unwrap_or_default(), entry.regex)
         };
         let regex = regex::RegexBuilder::new(&clean_escapes(&regex_with_flags))
-            .size_limit(20 * (1 << 20))
+            .size_limit(10 * (1 << 20))
             .build();
 
         Ok(Matcher {
